@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* GLOBAL STYLES */
+        :root {
+            --text-color: #e0e0e0;
+            --accent-color: #bb86fc; 
+            --hover-color: #3700b3;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            
+            /* --- GRADIENT BACKGROUND SETTINGS --- */
+            /* You can change these Hex colors to whatever you like! */
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite; /* Optional: Makes the gradient move slowly */
+        }
+
+        /* OPTIONAL: Animation for the gradient */
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* THE CONTAINER (Now with Glass Effect) */
+        .profile-card {
+            /* Semi-transparent background */
+            background-color: rgba(30, 30, 30, 0.75); 
+            /* The Blur Effect */
+            backdrop-filter: blur(15px); 
+            -webkit-backdrop-filter: blur(15px);
+            
+            width: 100%;
+            max-width: 400px;
+            padding: 40px 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
+        }
+
+        /* PROFILE IMAGE */
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        /* TEXT CONTENT */
+        h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .tagline {
+            color: #a0a0a0;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            margin-bottom: 20px;
+        }
+
+        .bio {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            color: #cccccc;
+        }
+
+        /* SOCIAL LINKS BUTTONS */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(44, 44, 44, 0.8); /* Slightly transparent buttons */
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 10px;
+            transition: transform 0.2s, background-color 0.2s;
+            font-weight: 500;
+        }
+
+        .link-btn:hover {
+            background-color: var(--accent-color);
+            color: black;
+            transform: translateY(-3px); 
+        }
+
+        .link-btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <img src="xvandat.jpg" alt="Ảnh đại diện" class="avatar">
+        
+        <h1>xVanDat</h1>
+        <p class="tagline">Content Creator | VALORANT player </p>
+        
+        <p class="bio">
+            Xin chào, mình là xVanDat. Các bạn có thể xem các social media của mình ở dưới.
+        </p>
+
+        <div class="links">
+            <a href="https://facebook.com/notxvandat" target="_blank" class="link-btn">
+                <i class="fab fa-facebook"></i> Facebook
+            </a>
+            
+            <a href="https://youtube.com/@xVanDat" target="_blank" class="link-btn">
+                <i class="fab fa-youtube"></i> YouTube
+            </a>
+
+            <a href="https://twitter.com/@xVanDat" target="_blank" class="link-btn">
+                <i class="fab fa-twitter"></i> Twitter / X
+            </a>
+
+            <a href="https://tiktok.com/@xvandat" target="_blank" class="link-btn">
+                <i class="fab fa-tiktok"></i> TikTok
+            </a>
+        </div>
+
+        <footer>
+            &copy; 2025 (Website này được tạo ra bởi Gemini 3.0)
+        </footer>
+    </div>
+
+</body>
+</html>
