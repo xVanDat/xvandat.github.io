@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="xVanDat - Content Creator & Valorant player profile links">
+    <title>About xVanDat</title>
+    
+    <link rel="icon" type="image/x-icon" href="xvandat.jpg">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* CSS Variables for Theme Management */
+        :root {
+            /* Dark Mode (Default) */
+            --text-main: #e0e0e0;
+            --text-muted: #cccccc;
+            --text-tagline: #a0a0a0;
+            --accent-color: #bb86fc; 
+            --accent-glow: rgba(187, 134, 252, 0.6);
+            --bg-card: rgba(30, 30, 30, 0.75);
+            --border-card: rgba(255, 255, 255, 0.1);
+            --btn-bg: rgba(44, 44, 44, 0.8);
+            --btn-text: #ffffff;
+            --btn-hover-text: #000000;
+        }
+
+        /* Light Mode Overrides */
+        [data-theme="light"] {
+            --text-main: #1a1a1a;
+            --text-muted: #4a4a4a;
+            --text-tagline: #666666;
+            --accent-color: #6200ea; /* Deeper purple for better contrast on light backgrounds */
+            --accent-glow: rgba(98, 0, 234, 0.4);
+            --bg-card: rgba(255, 255, 255, 0.85);
+            --border-card: rgba(0, 0, 0, 0.1);
+            --btn-bg: rgba(240, 240, 240, 0.9);
+            --btn-text: #1a1a1a;
+            --btn-hover-text: #ffffff;
+        }
+
+        /* Global Box Sizing */
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            
+            background: linear-gradient(135deg, #acb6e5, #86fde8);
+            background-size: 200% 200%;
+            animation: gradientBG 15s ease infinite;
+            will-change: background-position;
+            transition: color 0.4s ease; /* Smooth text color change */
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Theme Toggle Button Styling */
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-card);
+            color: var(--text-main);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1) rotate(15deg);
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
+        
+        .profile-card {
+            background-color: var(--bg-card); 
+            backdrop-filter: blur(15px); 
+            -webkit-backdrop-filter: blur(15px);
+            
+            width: 100%;
+            max-width: 400px;
+            padding: 40px 20px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid var(--border-card);
+            
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+            transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-color);
+            margin-bottom: 20px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+            will-change: transform;
+        }
+
+        .avatar:hover {
+            transform: scale(1.05) rotate(3deg);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .tagline {
+            color: var(--text-tagline);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            margin-bottom: 20px;
+            transition: color 0.4s ease;
+        }
+
+        .bio {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 30px;
+            color: var(--text-muted);
+            transition: color 0.4s ease;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+            width: 100%;
+            
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            will-change: transform, box-shadow;
+            
+            opacity: 0;
+            animation: fadeInUp 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+        }
+
+        .link-btn:nth-child(1) { animation-delay: 0.2s; }
+        .link-btn:nth-child(2) { animation-delay: 0.3s; }
+        .link-btn:nth-child(3) { animation-delay: 0.4s; }
+        .link-btn:nth-child(4) { animation-delay: 0.5s; }
+        .link-btn:nth-child(5) { animation-delay: 0.6s; }
+        .link-btn:nth-child(6) { animation-delay: 0.7s; }
+
+        .link-btn:hover, .link-btn:focus-visible {
+            background-color: var(--accent-color);
+            color: var(--btn-hover-text);
+            transform: translateY(-4px) scale(1.02); 
+            box-shadow: 0 8px 15px var(--accent-glow);
+            outline: none;
+        }
+
+        .link-btn i {
+            margin-right: 10px;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .link-btn:hover i {
+            transform: scale(1.15); 
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            color: var(--text-tagline);
+            line-height: 1.4;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards;
+            animation-delay: 0.8s;
+            transition: color 0.4s ease;
+        }
+        
+        footer p { margin: 0; }
+    </style>
+</head>
+<body>
+
+    <button id="themeToggle" class="theme-toggle" aria-label="Chuyển đổi giao diện Sáng/Tối">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <div class="profile-card">
+        <img src="xvandat.jpg" alt="Ảnh đại diện của xVanDat" class="avatar">
+        
+        <h1>xVanDat</h1>
+        <p class="tagline">Content Creator | Valorant player</p>
+        
+        <p class="bio">
+            Xin chào, mình là xVanDat. Bạn có thể theo dõi và kết nối với mình qua các mạng xã hội ở bên dưới.
+        </p>
+
+        <div class="links">
+            <a href="https://facebook.com/notxvandat" target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="Facebook">
+                <i class="fab fa-facebook"></i> Facebook
+            </a>
+            
+            <a href="https://youtube.com/@xVanDat" target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="YouTube">
+                <i class="fab fa-youtube"></i> YouTube
+            </a>
+
+            <a href="https://tiktok.com/@xvandat" target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="TikTok">
+                <i class="fab fa-tiktok"></i> TikTok
+            </a>
+
+            <button class="link-btn" onclick="copyDiscord()" aria-label="Copy Discord Username">
+                <i class="fab fa-discord"></i> <span id="discordText">Discord</span>
+            </button>
+
+            <a href="https://twitter.com/xVanDat_" target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="X (Twitter)">
+                <i class="fab fa-twitter"></i> X (Twitter)
+            </a>
+
+            <a href="https://tracker.gg/valorant/profile/riot/xVanDat%2309249" target="_blank" rel="noopener noreferrer" class="link-btn" aria-label="Valorant Tracker">
+                <i class="fas fa-gamepad"></i> Valorant Tracker
+            </a>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 xVanDat</p>
+            <p style="font-size: 0.75rem; margin-top: 5px; opacity: 0.7;">
+                <i class="fab fa-github"></i> GitHub Pages
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // --- Theme Toggle Logic ---
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = themeToggleBtn.querySelector('i');
+
+        // Check local storage or system preference
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        // Determine the initial theme to apply
+        let currentTheme = savedTheme ? savedTheme : (systemPrefersDark ? 'dark' : 'light');
+
+        // Apply initial theme
+        if (currentTheme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+            themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+
+        // Toggle Event Listener
+        themeToggleBtn.addEventListener('click', () => {
+            const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+            
+            if (isLight) {
+                // Switch to Dark
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'dark');
+                themeIcon.classList.replace('fa-sun', 'fa-moon');
+            } else {
+                // Switch to Light
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+                themeIcon.classList.replace('fa-moon', 'fa-sun');
+            }
+        });
+
+        // --- Discord Copy Logic ---
+        function copyDiscord() {
+            const myDiscordUsername = "xvandat"; 
+
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(myDiscordUsername).then(() => {
+                    updateButtonState();
+                }).catch(err => {
+                    console.error('Lỗi khi sao chép: ', err);
+                });
+            } else {
+                const textArea = document.createElement("textarea");
+                textArea.value = myDiscordUsername;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    updateButtonState();
+                } catch (err) {
+                    console.error('Lỗi fallback: ', err);
+                }
+                document.body.removeChild(textArea);
+            }
+        }
+
+        function updateButtonState() {
+            const textElement = document.getElementById("discordText");
+            const originalText = textElement.innerText;
+            
+            textElement.innerText = "Đã sao chép username";
+            
+            if (window.discordTimeout) clearTimeout(window.discordTimeout);
+            
+            window.discordTimeout = setTimeout(() => {
+                textElement.innerText = originalText;
+            }, 2000); 
+        }
+    </script>
+
+</body>
+</html>
