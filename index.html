@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xvandat - coming soon</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="xvandat.jpg">
+
+    <!-- Font chữ Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Reset & Base Styles --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --text-color: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --accent-color: #bb86fc;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+
+            /* Gradient Nền Động từ file reference */
+            background: linear-gradient(135deg, #acb6e5, #86fde8);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- Main Layout Container (Glassmorphism Card) --- */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 520px;
+            width: 88%;
+            padding: 3.5rem 2rem;
+            
+            /* Tông màu thẻ tối mờ */
+            background-color: rgba(30, 30, 30, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin: 20px;
+        }
+
+        /* --- Status Badge --- */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 14px;
+            border-radius: 99px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 1.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-color);
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.35; transform: scale(0.85); }
+        }
+
+        /* --- Content & Typography --- */
+        h1 {
+            font-size: clamp(1.85rem, 4.5vw, 2.5rem);
+            font-weight: 800;
+            line-height: 1.25;
+            margin-bottom: 0.75rem;
+            color: #ffffff;
+            letter-spacing: -0.03em;
+        }
+
+        p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            text-transform: lowercase;
+            margin-bottom: 2rem;
+        }
+
+        /* --- Divider & Footer --- */
+        .divider {
+            height: 1px;
+            width: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .footer-note {
+            font-size: 0.8rem;
+            color: #aaa;
+            font-weight: 400;
+            letter-spacing: 0.03em;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <div class="status-badge">
+            <span class="status-dot"></span>
+            <span>Preparing for the next big thing</span>
+        </div>
+
+        <h1>Something big is coming</h1>
+        
+        <p>check back later.</p>
+
+        <div class="divider"></div>
+
+        <div class="footer-note">
+            &copy; xvandat
+        </div>
+    </main>
+
+</body>
+</html>
